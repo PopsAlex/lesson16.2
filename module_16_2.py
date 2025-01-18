@@ -12,7 +12,7 @@ async def admin():
     return 'Вы вошли как администратор'
 
 @app.get('/user/{user_id}')
-async def user(user_id: int = Path(ge=1, le=100, description='Enter User ID', example=21)):
+async def user(user_id: Annotated[int, Path(ge=1, le=100, description='Enter User ID', example='1')]):
     return f'Вы вошли как пользователь № {user_id}'
 
 @app.get('/user/{username}/{age}')
